@@ -142,7 +142,7 @@ torchrun --standalone --nproc_per_node=4 train.py
 | Command | Description |
 |----------|-------------|
 | `sbatch script.sh` | Submit a job |
-| `squeue -u $USER` | Check running/pending jobs |
+| `squeue` | Check running/pending jobs |
 | `scontrol show job <job_id>` | Detailed job info |
 | `scancel <job_id>` | Cancel a job |
 | `sinfo` | Check node/partition status |
