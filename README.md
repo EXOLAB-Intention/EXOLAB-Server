@@ -67,7 +67,7 @@ Accounts are managed by the administrator using a helper script:
 adduser-slurm <YOUR ACCOUNT ID> # (ex: "adduser-slurm tykim")
 ```
 
-Please remember your password carefully.
+(!) **Please remember your password carefully.**
 
 After that, type:
 ```bash
