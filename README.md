@@ -117,17 +117,12 @@ sbatch train.sh
 
 ### Check job status
 ```bash
-squeue -u $USER
+squeue
 ```
 
 ### Cancel a job
 ```bash
 scancel <job_id>
-```
-
-### View logs
-```bash
-cat logs/<job_name>_<job_id>.out
 ```
 
 ---
