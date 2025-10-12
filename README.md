@@ -1,7 +1,8 @@
 # EXOLAB Server — User Guide
 
 This document explains how to access and use the shared GPU server managed by **Slurm**.
-Please read carefully before submitting any jobs.
+
+**Please read carefully** before submitting any jobs.
 
 ---
 
