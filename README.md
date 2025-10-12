@@ -52,7 +52,7 @@ This document explains how to access and use the shared GPU server managed by **
    ```
 6. In VSCode, open the command palette →  
    `Remote-SSH: Connect to Host... → server1-admin`
-   `(Password is 1234)`
+   `(You need to type password, which is announced.)`
 
 7. Select "Linux".
 8. Once connected, VSCode will open a remote workspace on the server.
