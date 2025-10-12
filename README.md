@@ -131,11 +131,11 @@ You can change the number of each resource in this template.
 #SBATCH --mem=32G         # Allocate 32 GB of memory
 ```
 
-For example, if you need multiple GPUs (ex: using DDP), update these lines:
+For example, if you need multiple GPUs for using **PyTorch DistributedDataParallel (DDP)**, update these lines:
 ```bash
 #SBATCH --gres=gpu:4
 ```
-and run your code using **PyTorch DistributedDataParallel (DDP)**:
+and run your code as an example below:
 ```bash
 torchrun --standalone --nproc_per_node=4 train.py
 ```
