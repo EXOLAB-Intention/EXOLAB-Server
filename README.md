@@ -1,6 +1,6 @@
 # EXOLAB Server — User Guide
 
-This document explains how to access and use the shared GPU server managed by **Slurm** and **Miniconda**.  
+This document explains how to access and use the shared GPU server managed by **Slurm**.
 Please read carefully before submitting any jobs.
 
 ---
@@ -25,8 +25,8 @@ Please read carefully before submitting any jobs.
 
 ## Access via VSCode (SSH Remote)
 
-1. Make sure your PC is connected to KAIST's network (WiFi / Ethernet).
-2. Install **VSCode** and the extension **"Remote - SSH"**.
+1. Make sure your PC is connected to **KAIST's network** (WiFi / Ethernet).
+2. Install the extension **"Remote - SSH"** in VSCode.
 3. Add the server to your SSH config file:
    
    (Linux)
@@ -98,7 +98,7 @@ After logging in, each user manages their own Conda environments independently.
    ```bash
    conda install pytorch torchvision torchaudio -c pytorch -c nvidia
    ```
-(!) Please note that CUDA toolkit is already installed.
+(!) **Please note that CUDA toolkit is already installed.**
 
 > The global installation path is `/opt/miniconda3`,  
 > but each user’s environment lives under `~/.conda/envs/`.
