@@ -53,7 +53,8 @@ Please read carefully before submitting any jobs.
    `Remote-SSH: Connect to Host... → server1-admin`
    `(Password is 1234)`
 
-7. Once connected, VSCode will open a remote workspace on the server.
+7. Select "Linux".
+8. Once connected, VSCode will open a remote workspace on the server.
 
 ---
 
