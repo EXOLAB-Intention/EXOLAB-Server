@@ -110,21 +110,6 @@ After logging in, each user manages their own Conda environments independently.
 Use Slurm to schedule your GPU/CPU jobs instead of running Python scripts directly.  
 A sample job script is provided: **`train.sh`**
 
-### Run the job
-```bash
-sbatch train.sh
-```
-
-### Check job status
-```bash
-squeue
-```
-
-### Cancel a job
-```bash
-scancel <job_id>
-```
-
 ---
 
 ## About `train.sh`
