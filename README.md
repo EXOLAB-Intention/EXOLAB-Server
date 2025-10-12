@@ -64,7 +64,7 @@ This document explains how to access and use the shared GPU server managed by **
 Accounts are managed by the administrator using a helper script:
 
 ```bash
-adduser-slurm <YOUR ACCOUNT ID> # (ex: "sudo adduser-slurm tykim")
+adduser-slurm <YOUR ACCOUNT ID> # (ex: "adduser-slurm tykim")
 ```
 
 Please remember your password carefully.
