@@ -57,7 +57,7 @@ Please read carefully before submitting any jobs.
 Accounts are managed by the administrator using a helper script:
 
 ```bash
-sudo adduser-slurm kckong #example
+   sudo adduser-slurm <YOUR ACCOUNT ID> # (ex: "sudo adduser-slurm tykim")
 ```
 
 Please type your password carefully.
@@ -68,9 +68,9 @@ exit
 ```
 and modify the config file as below:
 ```bash
-Host server1-kckong #example
+Host <YOUR SERVER NAME> # (ex: server1-tykim)
     HostName 143.248.65.114
-    User kckong #example
+    User <YOUR ACCOUNT ID>
     Port 22
 ```
 Each user can log in via SSH with the assigned password.
@@ -98,7 +98,7 @@ After logging in, each user manages their own Conda environments independently.
    ```bash
    conda install pytorch torchvision torchaudio -c pytorch -c nvidia
    ```
-(!) Please note that CUDA is already installed.
+(!) Please note that CUDA toolkit is already installed.
 
 > The global installation path is `/opt/miniconda3`,  
 > but each user’s environment lives under `~/.conda/envs/`.
