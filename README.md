@@ -70,7 +70,7 @@ and modify the config file as below:
 ```bash
 Host server1-kckong #example
     HostName 143.248.65.114
-    User %your ID%
+    User kckong #example
     Port 22
 ```
 Each user can log in via SSH with the assigned password.
