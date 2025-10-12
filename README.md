@@ -73,8 +73,8 @@ Host server1-kckong #example
     User %your ID%
     Port 22
 ```
-
 Each user can log in via SSH with the assigned password.
+
 ---
 
 ## Conda Environment Setup (Per User)
