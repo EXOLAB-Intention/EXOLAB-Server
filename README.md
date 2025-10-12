@@ -27,8 +27,13 @@ Please read carefully before submitting any jobs.
 
 1. Install **VSCode** and the extension **"Remote - SSH"**.
 2. Add the server to your SSH config file:
+   (Linux)
    ```bash
    code ~/.ssh/config
+   ```
+   (Windows)
+   ```bash
+   C:\Users\%USERNAME%\.ssh
    ```
    Example entry:
    ```bash
@@ -37,10 +42,10 @@ Please read carefully before submitting any jobs.
        User <your_username>
        Port 22
    ```
-3. In VSCode, open the command palette →  
+4. In VSCode, open the command palette →  
    `Remote-SSH: Connect to Host... → slurm-server`
 
-4. Once connected, VSCode will open a remote workspace on the server.
+5. Once connected, VSCode will open a remote workspace on the server.
 
 ---
 
