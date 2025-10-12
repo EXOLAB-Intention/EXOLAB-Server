@@ -25,8 +25,9 @@ Please read carefully before submitting any jobs.
 
 ## Access via VSCode (SSH Remote)
 
-1. Install **VSCode** and the extension **"Remote - SSH"**.
-2. Add the server to your SSH config file:
+1. Make sure your PC is connected to KAIST's network (WiFi / Ethernet).
+2. Install **VSCode** and the extension **"Remote - SSH"**.
+3. Add the server to your SSH config file:
    
    (Linux)
    ```bash
@@ -43,12 +44,11 @@ Please read carefully before submitting any jobs.
        User user
        Port 22
    ```
-3. Make sure your PC is connected to KAIST's network (WiFi / Ethernet).
-3. In VSCode, open the command palette →  
+4. In VSCode, open the command palette →  
    `Remote-SSH: Connect to Host... → server1-admin`
    `(Password is 1234)`
 
-4. Once connected, VSCode will open a remote workspace on the server.
+5. Once connected, VSCode will open a remote workspace on the server.
 
 ---
 
