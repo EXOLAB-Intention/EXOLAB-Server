@@ -27,6 +27,7 @@ Please read carefully before submitting any jobs.
 
 1. Install **VSCode** and the extension **"Remote - SSH"**.
 2. Add the server to your SSH config file:
+   
    (Linux)
    ```bash
    code ~/.ssh/config
