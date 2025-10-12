@@ -38,15 +38,16 @@ Please read carefully before submitting any jobs.
    ```
    Example entry:
    ```bash
-   Host slurm-server
-       HostName <SERVER_IP_OR_HOSTNAME>
-       User <your_username>
+   Host server1-admin
+       HostName 143.248.65.114
+       User user
        Port 22
    ```
-4. In VSCode, open the command palette →  
-   `Remote-SSH: Connect to Host... → slurm-server`
+3. In VSCode, open the command palette →  
+   `Remote-SSH: Connect to Host... → server1-admin`
+   `Password: 1234`
 
-5. Once connected, VSCode will open a remote workspace on the server.
+4. Once connected, VSCode will open a remote workspace on the server.
 
 ---
 
@@ -55,25 +56,29 @@ Please read carefully before submitting any jobs.
 Accounts are managed by the administrator using a helper script:
 
 ```bash
-sudo adduser-slurm <username>
+sudo adduser-slurm kckong #example
 ```
 
-After the account is created:
+Please type your password carefully.
+
+After that, type:
 ```bash
-su - <username>
+exit
 ```
-
-Each user can log in via SSH with the assigned password.  
-Please change your password after the first login:
+and modify the config file as below:
 ```bash
-passwd
+Host server1-kckong #example
+    HostName 143.248.65.114
+    User %your ID%
+    Port 22
 ```
 
+Each user can log in via SSH with the assigned password.
 ---
 
 ## Conda Environment Setup (Per User)
 
-Each user manages their own Conda environments independently.
+After logging in, each user manages their own Conda environments independently.
 
 1. Verify that Conda is available:
    ```bash
@@ -85,13 +90,14 @@ Each user manages their own Conda environments independently.
    ```
 3. Create your own environment:
    ```bash
-   conda create -n myenv python=3.11
+   conda create -n myenv python=3.11 # example, change with your preference (name, version, ...)
    conda activate myenv
    ```
 4. Install necessary packages (e.g., PyTorch):
    ```bash
-   conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+   conda install pytorch torchvision torchaudio -c pytorch -c nvidia
    ```
+(!) Please note that CUDA is already installed.
 
 > The global installation path is `/opt/miniconda3`,  
 > but each user’s environment lives under `~/.conda/envs/`.
