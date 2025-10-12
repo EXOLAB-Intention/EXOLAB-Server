@@ -27,7 +27,7 @@ Please read carefully before submitting any jobs.
 
 1. Make sure your PC is connected to **KAIST's network** (WiFi / Ethernet).
 2. Install the extension **"Remote - SSH"** in VSCode.
-3. Type ">ssh" in the search bar located at the top of the window, and click "Add New SSH Host...".
+3. Type ">ssh" in the command palette (located at the top of the window as "Search"), and click "Add New SSH Host...".
 4. Type:
    ```bash
    ssh user@143.248.65.114
