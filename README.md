@@ -36,7 +36,7 @@ Please read carefully before submitting any jobs.
    ```bash
    C:\Users\%USERNAME%\.ssh
    ```
-   Example entry:
+   Copy and Paste the below:
    ```bash
    Host server1-admin
        HostName 143.248.65.114
