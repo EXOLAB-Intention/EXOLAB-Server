@@ -45,7 +45,7 @@ Please read carefully before submitting any jobs.
    ```
 3. In VSCode, open the command palette →  
    `Remote-SSH: Connect to Host... → server1-admin`
-   `Password: 1234`
+   `(Password is 1234)`
 
 4. Once connected, VSCode will open a remote workspace on the server.
 
