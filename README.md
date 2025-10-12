@@ -43,6 +43,7 @@ Please read carefully before submitting any jobs.
        User user
        Port 22
    ```
+3. Make sure your PC is connected to KAIST's network (WiFi / Ethernet).
 3. In VSCode, open the command palette →  
    `Remote-SSH: Connect to Host... → server1-admin`
    `(Password is 1234)`
