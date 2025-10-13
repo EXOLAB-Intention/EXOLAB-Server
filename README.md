@@ -131,7 +131,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
    
 For TensorFlow:
 ```bash
- conda install -c conda-forge tensorflow
+conda install -c conda-forge tensorflow
 ```
       
 **Important notes:**
@@ -150,8 +150,8 @@ you can export it as a YAML file and recreate it on the EXOLAB server.
 
 Activate your environment first, then export it:
 ```bash
- conda activate <YOUR CONDA ENVIRONMENT>
- conda env export > myenv.yml
+conda activate <YOUR CONDA ENVIRONMENT>
+conda env export > myenv.yml
 ```
 
 This command will create a file named "myenv.yml" in your current directory.
@@ -169,19 +169,19 @@ grep -vE 'cuda|cudnn|nccl' myenv.yml > myenv_clean.yml
 
 You can use scp or VSCode file upload to transfer the file:
 ```bash
- scp myenv_clean.yml user@143.248.65.114:/home/<YOUR ACCOUNT ID>/
+scp myenv_clean.yml user@143.248.65.114:/home/<YOUR ACCOUNT ID>/
 ```
 
 ### 4. Recreate the environment on the server
 
 Log in to the server and create a new Conda environment:
 ```bash
- conda env create -n myenv -f myenv_clean.yml
+conda env create -n myenv -f myenv_clean.yml
 ```
 
 Then activate it:
 ```bash
- conda activate myenv
+conda activate myenv
 ```
 
 ### 5. Reinstall your deep learning frameworks
@@ -189,9 +189,9 @@ Then activate it:
 Install your preferred framework inside the new environment:
 
 PyTorch (recommended)
- ```bash
- conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
- ```
+```bash
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+```
 
 For TensorFlow
 ```bash
