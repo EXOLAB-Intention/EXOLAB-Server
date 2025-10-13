@@ -220,7 +220,12 @@ A sample job script is provided: **`train.sh`**
 The included `train.sh` is a **single-GPU Slurm job template**.  
 It automatically activates your Conda environment and runs `train.py`.
 
-You can change the number of each resource in this template.
+To submit and que your job, type:
+```bash
+sbatch train.sh
+```
+
+You can also change the number of each resource in this template.
 ```bash
 #SBATCH --gres=gpu:1      # Request 1 GPU
 #SBATCH --cpus-per-task=8 # Use up to 8 CPU cores
