@@ -167,14 +167,14 @@ Before using this YAML file on the server, you shold remove any lines containing
 
 You can use scp or VSCode file upload to transfer the file:
    ```bash
-    scp myenv.yml user@143.248.65.114:/home/user/
+    scp myenv_clean.yml user@143.248.65.114:/home/<YOUR ACCOUNT ID>/
    ```
 
 ### 4. Recreate the environment on the server
 
 Log into the server and create a new Conda environment:
    ```bash
-    conda env create -n myenv -f myenv.yml
+    conda env create -n myenv -f myenv_clean.yml
    ```
 
 Then activate it:
