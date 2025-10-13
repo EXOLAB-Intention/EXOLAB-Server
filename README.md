@@ -30,26 +30,27 @@ This document explains how to access and use the shared GPU server managed by **
 2. Install the extension **"Remote - SSH"** in VSCode.
 3. Type ">ssh" in the command palette (located at the top of the window as "Search"), and click "Add New SSH Host...".
 4. Type:
-   ```bash
-   ssh user@143.248.65.114
-   ```
+```bash
+ssh user@143.248.65.114
+```
 5. Select the config as below to create/modify your SSH configuration file:
    
-   (Linux)
-   ```bash
-   code ~/.ssh/config
-   ```
-   (Windows)
-   ```bash
-   C:\Users\%USERNAME%\.ssh
-   ```
-   Open that file and modify it as:
-   ```bash
-   Host server1-admin
-       HostName 143.248.65.114
-       User user
-       Port 22
-   ```
+(Linux)
+```bash
+code ~/.ssh/config
+```
+(Windows)
+```bash
+C:\Users\%USERNAME%\.ssh
+```
+Open that file and modify it as:
+```bash
+Host server1-admin
+    HostName 143.248.65.114
+    User user
+    Port 22
+```
+
 6. In VSCode, open the command palette →  
    `Remote-SSH: Connect to Host... → server1-admin`
    `(You need to type password, which is announced.)`
@@ -106,32 +107,32 @@ It is safe to create some folders first and do the rest of your work inside thos
 After logging in, each user manages their own Conda environments independently.
 
 1. Verify that Conda is available:
-   ```bash
-   conda --version
-   ```
+```bash
+conda --version
+```
 
 2. Initialize Conda for your shell (only once):
-   ```bash
-   conda init bash
-   ```
+```bash
+conda init bash
+```
    
 3. Create your own environment:
-   ```bash
-   conda create -n myenv python=3.11  # example, change with your preference
-   conda activate myenv
-   ```
+```bash
+conda create -n myenv python=3.11  # example, change with your preference
+conda activate myenv
+```
    
 4. Install your frameworks such as PyTorch or TensorFlow:
 
 For PyTorch (recommended):
 ```bash
- conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 ```
    
 For TensorFlow:
 ```bash
  conda install -c conda-forge tensorflow
-   ```
+```
       
 **Important notes:**
 
@@ -148,40 +149,40 @@ you can export it as a YAML file and recreate it on the EXOLAB server.
 ### 1. Export your local Conda environment
 
 Activate your environment first, then export it:
-   ```bash
-    conda activate <YOUR CONDA ENVIRONMENT>
-    conda env export > myenv.yml
-   ```
+```bash
+ conda activate <YOUR CONDA ENVIRONMENT>
+ conda env export > myenv.yml
+```
 
 This command will create a file named "myenv.yml" in your current directory.
 
 ### 2. Clean up unnecessary CUDA-related packages
 
 Before using this YAML file on the server, you should remove any lines containing the cuda-related packages.
-   ```bash
-   grep -vE 'cuda|cudnn|nccl' myenv.yml > myenv_clean.yml
-   ```
+```bash
+grep -vE 'cuda|cudnn|nccl' myenv.yml > myenv_clean.yml
+```
 
 (These low-level CUDA libraries are often platform-specific and may cause version conflicts.)
 
 ### 3. Copy the YAML file to the server
 
 You can use scp or VSCode file upload to transfer the file:
-   ```bash
-    scp myenv_clean.yml user@143.248.65.114:/home/<YOUR ACCOUNT ID>/
-   ```
+```bash
+ scp myenv_clean.yml user@143.248.65.114:/home/<YOUR ACCOUNT ID>/
+```
 
 ### 4. Recreate the environment on the server
 
-Log into the server and create a new Conda environment:
-   ```bash
-    conda env create -n myenv -f myenv_clean.yml
-   ```
+Log in to the server and create a new Conda environment:
+```bash
+ conda env create -n myenv -f myenv_clean.yml
+```
 
 Then activate it:
-   ```bash
-    conda activate myenv
-   ```
+```bash
+ conda activate myenv
+```
 
 ### 5. Reinstall your deep learning frameworks
 
