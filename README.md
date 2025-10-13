@@ -67,6 +67,7 @@ Accounts are managed by the administrator using a helper script:
 adduser-slurm <YOUR ACCOUNT ID> # (ex: "adduser-slurm tykim")
 ```
 First, you should type sudo password (which is announced), then you may see the line that sets your password.
+
 (!) **Please remember your password carefully.**
 
 After that, type:
@@ -95,6 +96,7 @@ Since the base repository is already created as:
 You can create files and folders within it.
 
 Please do not modify or delete the system files and folders.
+
 It is safe to create some folders first and do the rest of your work inside those folders.
 
 ---
