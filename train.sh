@@ -36,6 +36,7 @@ echo "Job started on $(hostname) at $(date)"
 echo "CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES"
 nvidia-smi -L
 
+export PYTHONUNBUFFERED=1                 # To see the output in .out file directly
 
 # ================= RUN YOUR SCRIPT =================
 python train.py
