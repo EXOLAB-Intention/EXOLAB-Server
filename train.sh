@@ -36,11 +36,13 @@ echo "Job started on $(hostname) at $(date)"
 echo "CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES"
 nvidia-smi -L
 
+
 # ================= RUN YOUR SCRIPT =================
 python train.py
+# torchrun --standalone --nproc_per_node=4 train.py # For multi-GPU use
+
 
 # ================== SLURM COMMAND ==================
-
 # sbatch train.sh                           # Submit this script
 # scancel <job_id>                          # Cancel job with job ID
 # squeue                                    # Check all job status
