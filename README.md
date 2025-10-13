@@ -160,10 +160,6 @@ but each user’s environment lives under ~/.conda/envs/.
 Use Slurm to schedule your GPU/CPU jobs instead of running Python scripts directly.  
 A sample job script is provided: **`train.sh`**
 
----
-
-## About `train.sh`
-
 The included `train.sh` is a **single-GPU Slurm job template**.  
 It automatically activates your Conda environment and runs `train.py`.
 
