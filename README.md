@@ -109,6 +109,60 @@ After logging in, each user manages their own Conda environments independently.
    ```bash
    conda --version
    ```
+
+2. Initialize Conda for your shell (only once):
+   ```bash
+   conda init bash
+   ```
+   
+3. Create your own environment:
+   ```bash
+   conda create -n myenv python=3.11  # example, change with your preference
+   conda activate myenv
+   ```
+   
+4. Install your frameworks such as PyTorch or TensorFlow:
+
+   For PyTorch (recommended):
+      ```bash
+       conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+      ```
+      
+   For TensorFlow:
+      ```bash
+       conda install -c conda-forge tensorflow
+      ```
+      
+Important notes:
+- The GPU driver (for CUDA) is already installed globally on the server.
+- You can still install CUDA runtime packages (like pytorch-cuda=12.x or cudatoolkit)
+  inside your Conda environment — this does not conflict with the system driver.
+- Just ensure the runtime version ≤ 12.2 (driver-supported maximum).
+
+If you import a Conda environment from your PC using a YAML file,
+remove any low-level packages such as:
+   ```bash
+    cudatoolkit, cuda, cudnn, nccl, cuda-*
+   ```
+before running:
+   ```bash
+    conda env create -n myenv -f environment.yml
+   ```
+Then reinstall PyTorch or TensorFlow as shown above.
+
+The global installation path is /opt/miniconda3,
+but each user’s environment lives under ~/.conda/envs/.
+
+
+
+## Conda Environment Setup (Per User)
+
+After logging in, each user manages their own Conda environments independently.
+
+1. Verify that Conda is available:
+   ```bash
+   conda --version
+   ```
 2. Initialize Conda for your shell (only once):
    ```bash
    conda init bash
