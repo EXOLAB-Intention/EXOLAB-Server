@@ -139,16 +139,71 @@ Important notes:
   inside your Conda environment — this does not conflict with the system driver.
 - Just ensure the runtime version ≤ 12.2 (driver-supported maximum).
 
-If you import a Conda environment from your PC using a YAML file,
-remove any low-level packages such as:
+## Exporting and Importing Conda Environments (YAML)
+
+If you already have a working Conda environment on your local PC,  
+you can export it as a YAML file and recreate it on the EXOLAB server.
+
+### 1. Export your local Conda environment
+
+Activate your environment first, then export it:
    ```bash
-    cudatoolkit, cuda, cudnn, nccl, cuda-*
+    conda activate <YOUR CONDA ENVIRONMENT>
+    conda env export > myenv.yml
    ```
-before running:
+
+This command will create a file named "myenv.yml" in your current directory.
+
+### 2. Clean up unnecessary CUDA-related packages
+
+Before using this YAML file on the server, you shold remove any lines containing the cuda-related packages.
    ```bash
-    conda env create -n myenv -f environment.yml
+   grep -vE 'cuda|cudnn|nccl' myenv.yml > myenv_clean.yml
    ```
-Then reinstall PyTorch or TensorFlow as shown above.
+
+(These low-level CUDA libraries are often platform-specific and may cause version conflicts.)
+
+### 3. Copy the YAML file to the server
+
+You can use scp or VSCode file upload to transfer the file:
+   ```bash
+    scp myenv.yml user@143.248.65.114:/home/user/
+   ```
+
+### 4. Recreate the environment on the server
+
+Log into the server and create a new Conda environment:
+   ```bash
+    conda env create -n myenv -f myenv.yml
+   ```
+
+Then activate it:
+   ```bash
+    conda activate myenv
+   ```
+
+### 5. Reinstall your deep learning frameworks
+
+Install your preferred framework inside the new environment:
+    # PyTorch (recommended)
+    ```bash
+    conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+    ```
+
+    # or TensorFlow
+    ```bash
+    conda install -c conda-forge tensorflow
+    ```
+
+### 6. Verify GPU access
+
+To check if CUDA works properly, run:
+    python -c "import torch; print(torch.cuda.is_available())"
+or:
+    python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+
+If the output is "True" or shows your GPU (e.g., NVIDIA RTX A5000),  
+your setup is complete and ready to use.
 
 The global installation path is /opt/miniconda3,
 but each user’s environment lives under ~/.conda/envs/.
