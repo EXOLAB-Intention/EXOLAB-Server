@@ -153,34 +153,6 @@ Then reinstall PyTorch or TensorFlow as shown above.
 The global installation path is /opt/miniconda3,
 but each user’s environment lives under ~/.conda/envs/.
 
-
-
-## Conda Environment Setup (Per User)
-
-After logging in, each user manages their own Conda environments independently.
-
-1. Verify that Conda is available:
-   ```bash
-   conda --version
-   ```
-2. Initialize Conda for your shell (only once):
-   ```bash
-   conda init bash
-   ```
-3. Create your own environment:
-   ```bash
-   conda create -n myenv python=3.11 # example, change with your preference (name, version, ...)
-   conda activate myenv
-   ```
-4. Install necessary packages (e.g., PyTorch):
-   ```bash
-   conda install pytorch torchvision torchaudio -c pytorch -c nvidia
-   ```
-(!) **Please note that CUDA toolkit is already installed.**
-
-> The global installation path is `/opt/miniconda3`,  
-> but each user’s environment lives under `~/.conda/envs/`.
-
 ---
 
 ## Submitting Jobs with Slurm
