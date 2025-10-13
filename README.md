@@ -123,17 +123,18 @@ After logging in, each user manages their own Conda environments independently.
    
 4. Install your frameworks such as PyTorch or TensorFlow:
 
-   For PyTorch (recommended):
-      ```bash
-       conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-      ```
+For PyTorch (recommended):
+```bash
+ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+```
+   
+For TensorFlow:
+```bash
+ conda install -c conda-forge tensorflow
+   ```
       
-   For TensorFlow:
-      ```bash
-       conda install -c conda-forge tensorflow
-      ```
-      
-Important notes:
+**Important notes:**
+
 - The GPU driver (for CUDA) is already installed globally on the server.
 - You can still install CUDA runtime packages (like pytorch-cuda=12.x or cudatoolkit)
   inside your Conda environment — this does not conflict with the system driver.
@@ -156,7 +157,7 @@ This command will create a file named "myenv.yml" in your current directory.
 
 ### 2. Clean up unnecessary CUDA-related packages
 
-Before using this YAML file on the server, you shold remove any lines containing the cuda-related packages.
+Before using this YAML file on the server, you should remove any lines containing the cuda-related packages.
    ```bash
    grep -vE 'cuda|cudnn|nccl' myenv.yml > myenv_clean.yml
    ```
@@ -185,15 +186,16 @@ Then activate it:
 ### 5. Reinstall your deep learning frameworks
 
 Install your preferred framework inside the new environment:
-    # PyTorch (recommended)
-    ```bash
-    conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-    ```
 
-    # or TensorFlow
-    ```bash
-    conda install -c conda-forge tensorflow
-    ```
+PyTorch (recommended)
+ ```bash
+ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+ ```
+
+For TensorFlow
+```bash
+conda install -c conda-forge tensorflow
+```
 
 ### 6. Verify GPU access
 
