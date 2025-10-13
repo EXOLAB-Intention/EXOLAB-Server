@@ -66,14 +66,14 @@ Accounts are managed by the administrator using a helper script:
 ```bash
 adduser-slurm <YOUR ACCOUNT ID> # (ex: "adduser-slurm tykim")
 ```
-
+First, you should type sudo password (which is announced), then you may see the line that sets your password.
 (!) **Please remember your password carefully.**
 
 After that, type:
 ```bash
 exit
 ```
-and modify the config file as below:
+and modify the config file set before as below:
 ```bash
 Host <YOUR SERVER NAME> # (ex: server1-tykim)
     HostName 143.248.65.114
@@ -81,6 +81,15 @@ Host <YOUR SERVER NAME> # (ex: server1-tykim)
     Port 22
 ```
 Each user can log in via SSH with the assigned password.
+
+---
+
+## File and folder (Per User)
+
+After you create your account, while working with VSCode, you should create your own folder.
+Since the base repository is already created as /home/<YOUR ID>, you can create files and folders in it.
+Please do not modify or delete the system files and folders.
+It is safe to create some folders first and do the rest of your work inside those folders.
 
 ---
 
