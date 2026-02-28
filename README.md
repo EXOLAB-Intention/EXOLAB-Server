@@ -24,6 +24,18 @@ This document explains how to access and use the shared GPU server managed by **
 
 ---
 
+## 🆕 Web GUI: EXOLAB Server Monitor
+
+You can monitor the server status, GPU usage, and your Slurm jobs in real-time via the web dashboard.
+
+- **URL**: [http://143.248.65.114:5050](http://143.248.65.114:5050)
+- **Features**:
+    - **Dashboard**: System load, RAM, and GPU utilization.
+    - **Storage Management**: Check your disk usage in `/home`.
+    - **Job Monitoring**: View running/pending jobs and even preview your job scripts.
+
+---
+
 ## Access via VSCode (SSH Remote)
 
 1. Make sure your PC is connected to **KAIST's network** (WiFi / Ethernet).
@@ -233,16 +245,26 @@ You can also change the number of each resource in this template.
 #SBATCH --mem=32G         # Allocate 32 GB of memory
 ```
 
+### 🆕 Specific GPU Allocation
+If you want to use a specific GPU index (e.g., for consistency in debugging), you can specify it using the `idx` type:
+```bash
+#SBATCH --gres=gpu:1          # Request any 1 GPU
+#SBATCH --gres=gpu:idx0:1     # Request GPU #0 specifically
+#SBATCH --gres=gpu:idx1:1     # Request GPU #1 specifically
+#SBATCH --gres=gpu:idx2:1     # Request GPU #2 specifically
+#SBATCH --gres=gpu:idx3:1     # Request GPU #3 specifically
+```
+*(Note: Availability depends on other users' jobs. If the specific GPU is already in use by another job, your job will stay in 'PENDING' state.)*
+
 For example, if you need multiple GPUs for using **PyTorch DistributedDataParallel (DDP)**, update these lines:
 ```bash
-#SBATCH --gres=gpu:4
+#SBATCH --gres=gpu:4                    # Request any 4 GPUs
+#SBATCH --gres=gpu:idx0:1,gpu:idx1:1    # Request GPU #0,1 specifically
 ```
 and run your code as an example below:
 ```bash
 torchrun --standalone --nproc_per_node=4 train.py
 ```
-
-> Without DDP, requesting multiple GPUs does **not** automatically make your code multi-GPU aware.
 
 ---
 
@@ -267,4 +289,4 @@ torchrun --standalone --nproc_per_node=4 train.py
 
 ---
 
-_Last updated: Oct 2025_
+_Last updated: Feb 2026_
