@@ -20,7 +20,7 @@
 #SBATCH -J single_gpu_train               # Job name (for display in squeue / logs)
 #SBATCH -N 1                              # Number of nodes (always 1 in this server)
 #SBATCH -n 1                              # Number of tasks (processes)
-#SBATCH --gres=gpu:1                      # GPU allocation
+#SBATCH --gres=gpu:1                      # GPU allocation / --gres=gpu:idx{gpu number}:1 for specific GPU usage
 #SBATCH --cpus-per-task=8                 # CPU allocation: choose ≤ 64
 #SBATCH --mem=32G                         # Memory allocation: choose ≤ 62000 MB (~62G)
 #SBATCH -t 12:00:00                       # Max runtime (HH:MM:SS)
