@@ -19,8 +19,8 @@ This document explains how to access and use the shared GPU server managed by **
 | **GPUs** | 4 × NVIDIA RTX A5000 |
 | **Python Environment** | System-wide Miniconda (`/opt/miniconda3`) |
 
-> Resource limits per node:  
-> `--cpus-per-task ≤ 64`, `--mem ≤ 62G`, `--gres=gpu: ≤ 4`
+> Resource limits per gpu:  
+> `--cpus-per-task ≤ 16`, `--mem ≤ 15G`
 
 ---
 
