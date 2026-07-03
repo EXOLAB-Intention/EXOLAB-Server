@@ -240,19 +240,27 @@ sbatch train.sh
 
 You can also change the number of each resource in this template.
 ```bash
-#SBATCH --gres=gpu:1      # Request 1 GPU
+#SBATCH --partition={idx_number} # Request {idx_number} partition
+#SBATCH --gres=gpu:{idx_number}:1      # Request {idx number} gpu (ex) idx0, idx1, idx2, idx3)
 #SBATCH --cpus-per-task=8 # Use up to 8 CPU cores
-#SBATCH --mem=32G         # Allocate 32 GB of memory
+#SBATCH --mem=15G         # Allocate 15 GB of memory
 ```
 
 ### 🆕 Specific GPU Allocation
 If you want to use a specific GPU index (e.g., for consistency in debugging), you can specify it using the `idx` type:
 ```bash
-#SBATCH --gres=gpu:1          # Request any 1 GPU
-#SBATCH --gres=gpu:idx0:1     # Request GPU #0 specifically
-#SBATCH --gres=gpu:idx1:1     # Request GPU #1 specifically
-#SBATCH --gres=gpu:idx2:1     # Request GPU #2 specifically
-#SBATCH --gres=gpu:idx3:1     # Request GPU #3 specifically
+# Request GPU #0 specifically
+#SBATCH --partition=idx0
+#SBATCH --gres=gpu:idx0:1
+# Request GPU #1 specifically
+#SBATCH --partition=idx1     
+#SBATCH --gres=gpu:idx1:1
+# Request GPU #2 specifically     
+#SBATCH --partition=idx2
+#SBATCH --gres=gpu:idx2:1
+# Request GPU #3 specifically     
+#SBATCH --partition=idx3
+#SBATCH --gres=gpu:idx3:1     
 ```
 *(Note: Availability depends on other users' jobs. If the specific GPU is already in use by another job, your job will stay in 'PENDING' state.)*
 
