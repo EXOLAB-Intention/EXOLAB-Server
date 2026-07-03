@@ -20,9 +20,10 @@
 #SBATCH -J single_gpu_train               # Job name (for display in squeue / logs)
 #SBATCH -N 1                              # Number of nodes (always 1 in this server)
 #SBATCH -n 1                              # Number of tasks (processes)
-#SBATCH --gres=gpu:1                      # GPU allocation / --gres=gpu:idx{gpu number}:1 for specific GPU usage
-#SBATCH --cpus-per-task=8                 # CPU allocation: choose ≤ 64
-#SBATCH --mem=32G                         # Memory allocation: choose ≤ 62000 MB (~62G)
+#SBATCH --partition=idx0
+#SBATCH --gres=gpu:idx0:1                      # GPU allocation / --gres=gpu:idx{gpu number}:1 for specific GPU usage
+#SBATCH --cpus-per-task=8                 # CPU allocation: choose ≤ 16
+#SBATCH --mem=15G                         # Memory allocation: choose ≤ 15000 MB (~15G)
 #SBATCH -t 12:00:00                       # Max runtime (HH:MM:SS)
 #SBATCH -o logs/%x_%j.out                 # Log files   (%x = job name, %j = job ID)
 #SBATCH -e logs/%x_%j.err                 # Error files (%x = job name, %j = job ID)
@@ -40,7 +41,7 @@ export PYTHONUNBUFFERED=1                 # To see the output in .out file direc
 
 # ================= RUN YOUR SCRIPT =================
 python train.py
-# torchrun --standalone --nproc_per_node=4 train.py # For multi-GPU use
+# torchrun --standalone --nproc_per_node=4 train.py # For multi-GPU use (not available now)
 
 
 # ================== SLURM COMMAND ==================
